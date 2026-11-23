@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Практика PostgreSQL по шести главам Metanit с SQL-редактором в браузере.">
+<meta name="theme-color" content="#F1F1F1">
+<title>SQL-тетрадка · PostgreSQL</title>
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap top-inner"><div class="brand"><span class="logo" aria-hidden="true">&gt;_</span> SQL-тетрадка</div><div class="progress"><label id="progress-label" for="progress">Прогресс</label><progress id="progress"></progress></div></div></header>
+<div class="wrap layout">
+<aside aria-label="Навигация и файлы">
+<details id="navigation" class="navigation" open>
+<summary>Оглавление</summary>
+<nav id="chapters" aria-label="Главы тетрадки"></nav>
+</details>
+<a class="source" href="https://metanit.com/sql/postgresql/" target="_blank" rel="noopener">Теория на Metanit</a>
+<details class="backup"><summary>Открыть в pgAdmin</summary><ol><li>В pgAdmin подключись к своему серверу и создай пустую учебную базу, например <code>sql_notebook</code>.</li><li>Открой <strong>Query Tool</strong> для этой базы. Открой и выполни скачанный файл учебной базы один раз.</li><li>Скачай текущий запрос из редактора и открой его в Query Tool. Результаты отобразятся в pgAdmin.</li></ol><button id="download-seed">Скачать учебную базу</button></details>
+<details class="backup"><summary>Перенос прогресса</summary><p>Чтобы продолжить на другом устройстве, скачай файл и загрузи его там. Загрузка заменит местные черновики и отметки.</p><button id="export">Скачать прогресс</button><label class="import-label" for="import">Загрузить файл</label><input id="import" type="file" accept=".json,application/json" hidden><p id="backup-status" role="status"></p></details>
+</aside>
+<main id="main">
+<section class="hero" aria-labelledby="chapter-title"><p class="eyebrow" id="chapter-number"></p><h1 id="chapter-title"></h1><p id="chapter-subtitle"></p></section>
+<details class="theory" open><summary>Теория и примеры SQL</summary><div id="theory"></div></details>
+<section class="practice" aria-labelledby="exercise-heading">
+<div class="section-head"><h2 id="exercise-heading">Практика</h2><label for="tasks">Задание <select id="tasks"></select></label></div>
+<article class="exercise">
+<div class="task-body"><div class="task-meta"><span id="difficulty"></span><span id="completed"></span></div><h3 id="task-title"></h3><p id="prompt"></p>
+<details class="schema"><summary>Таблицы учебной базы</summary><p><code>readers(id, name, city)</code><br><code>books(id, title, genre, price, tags)</code><br><code>loans(id, reader_id, book_id, borrowed_on, returned_on)</code></p><p>У каждой выдачи есть читатель и книга. Если книгу ещё не вернули, <code>returned_on</code> равно <code>NULL</code>. Перед каждым запуском исходные данные восстанавливаются.</p></details></div>
+<div class="hint"><button type="button" id="hint-toggle" aria-expanded="false" aria-controls="hint-text">Показать подсказку</button><p id="hint-text" hidden></p></div>
+<div class="editor"><div class="editor-header"><label for="sql">Редактор SQL</label><span>PostgreSQL</span></div><textarea id="sql" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Напиши свой запрос…"></textarea></div>
+<div class="actions"><button class="run" id="run">▶ Запустить</button><button class="check" id="check">Проверить ответ</button><button id="download-query">Скачать запрос .sql</button></div>
+<p id="feedback" class="feedback" role="status">Результат появится здесь после запуска.</p><div id="results"></div>
+<details class="solution" id="solution"><summary>Показать пример решения</summary><pre id="answer"></pre></details>
+</article>
+<div class="pager"><button id="prev">Предыдущее</button><button id="next">Следующее задание</button></div>
+</section>
+</main>
+</div>
+</body>
+</html>

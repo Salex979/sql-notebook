@@ -1,0 +1,113 @@
+:root {
+  color: #030303;
+  background: #F1F1F1;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ink: #030303;
+  --paper: #F1F1F1;
+  --lilac: #D1B4F7;
+  --lime: #F2F99C;
+  --line: #dcd8e3;
+}
+* { box-sizing: border-box }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 5% 0%, var(--lime), transparent 51%),
+    radial-gradient(ellipse at 100% 100%, var(--lilac), transparent 56%),
+    var(--paper);
+}
+button, select, textarea { font: inherit; color: inherit }
+button, summary, select { cursor: pointer }
+a { color: inherit; text-underline-offset: 3px }
+:focus-visible { outline: 3px solid #7451a0; outline-offset: 3px }
+[hidden] { display: none !important }
+.wrap { inline-size: min(100% - 32px, 800px); margin-inline: auto }
+.top-inner, .brand, .progress, .section-head, .task-meta, .editor-header, .actions, .pager {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top-inner, .section-head, .editor-header, .pager { justify-content: space-between }
+.top-inner { min-height: 64px }
+.brand { font-weight: 850 }
+.logo { background: var(--lime); font: 800 1rem monospace; padding: 8px; border-radius: 12px }
+.progress { font-size: .875rem; font-weight: 650 }
+progress { width: 100px; height: 8px; appearance: none; border: 0; border-radius: 20px; overflow: hidden; background: #e8ddf6 }
+progress::-webkit-progress-bar { background: #e8ddf6 }
+progress::-webkit-progress-value { background: #8e57cb }
+progress::-moz-progress-bar { background: #8e57cb }
+.layout { padding-block: 6px 48px }
+aside { display: flex; flex-wrap: wrap; gap: 7px; align-items: flex-start; margin-bottom: 15px }
+aside details, .source { background: #ffffffd4; border-radius: 12px; padding: 9px 12px; font-size: .875rem }
+aside details[open] { flex-basis: 100% }
+summary { font-weight: 720 }
+nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; margin-top: 10px }
+nav button { text-align: left; font-size: .88rem; display: grid; grid-template-columns: 25px 1fr; gap: 4px }
+nav button[aria-current] { background: var(--lilac) }
+.backup p, .backup ol { font-size: .9rem; line-height: 1.5 }
+.backup ol { padding-left: 22px }
+.import-label { display: inline-block; margin-left: 10px; text-decoration: underline; cursor: pointer }
+.source { font-weight: 650 }
+main {
+  min-width: 0;
+  background: #fefdfd;
+  padding: clamp(20px, 5vw, 48px);
+  border-radius: 30px;
+  box-shadow: 0 22px 55px #30194718;
+}
+.hero p { margin: 0; line-height: 1.45 }
+.eyebrow { display: inline-block; background: var(--lime); padding: 5px 10px; border-radius: 10px; font-size: .875rem; font-weight: 800 }
+h1 { font-size: clamp(2rem, 5.5vw, 3.5rem); line-height: 1.03; letter-spacing: -.055em; margin: 11px 0 9px; overflow-wrap: anywhere }
+.theory { margin-top: 19px; border-radius: 16px; padding: 13px 15px; background: #f4eefb }
+h2 { margin: 0; font-size: 1.2rem }
+p { line-height: 1.55 }
+.theory p, .task-body p { margin: 7px 0 0 }
+.theory section { margin-top: 17px }
+.theory section + section { padding-top: 14px; border-top: 1px solid var(--line) }
+.theory h2 { font-size: 1.03rem }
+.theory pre { margin: 9px 0 0; background: #fefdfd; border: 1px solid var(--line); font-size: .875rem }
+.hint { margin-top: 13px }
+.hint button { background: #f4eefb }
+.hint p { margin: 8px 0 0; padding: 10px 12px; border-left: 4px solid var(--lilac); background: #f4eefb; border-radius: 8px }
+.practice { margin-top: 21px }
+.section-head { flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid var(--line) }
+.section-head label { display: flex; align-items: center; gap: 7px; max-width: 100%; font-size: .875rem }
+select { min-width: 0; width: min(260px, 58vw); min-height: 43px; padding: 7px 9px; border: 1px solid #b9b0c4; border-radius: 12px; background: white }
+.exercise { padding-block: 17px 0; min-width: 0 }
+.task-meta { font-size: .875rem; flex-wrap: wrap }
+#difficulty { padding: 4px 9px; background: var(--lime); border-radius: 8px; font-weight: 750 }
+#completed { font-weight: 700 }
+h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.1; letter-spacing: -.045em; margin: 9px 0 0 }
+.schema, .solution { margin-top: 13px; font-size: .9rem }
+code, pre, textarea { font-family: Consolas, "SFMono-Regular", monospace }
+code { overflow-wrap: anywhere }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); padding: 12px; border-radius: 10px }
+.editor { margin-top: 15px; border: 1px solid #b9b0c4; border-radius: 16px; overflow: hidden; background: #fbfafc }
+.editor-header { padding: 8px 13px; border-bottom: 1px solid var(--line); background: #f4eefb; font-size: .875rem; font-weight: 750 }
+textarea { display: block; border: 0; padding: 13px; background: transparent; resize: vertical; width: 100%; min-height: 135px; font-size: 16px; line-height: 1.5; tab-size: 2 }
+textarea:focus-visible { outline-offset: -3px; border-radius: 0 0 15px 15px }
+button { border: 0; border-radius: 13px; background: var(--paper); font-weight: 740; padding: 9px 14px; min-height: 44px }
+button:disabled { opacity: .55; cursor: default }
+button:hover:not(:disabled) { filter: brightness(.95) }
+.actions { gap: 7px; margin-top: 10px; flex-wrap: wrap }
+.run, #next { background: var(--lilac) }
+.check { background: var(--lime) }
+.feedback { margin: 11px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .93rem }
+.feedback[data-kind=pass] { font-weight: 800; background: var(--lime); border-radius: 9px; padding: 8px 12px }
+.feedback[data-kind=error] { color: #8e2323 }
+.output { max-height: 290px; overflow: auto; margin-top: 10px; border: 1px solid var(--line); border-radius: 10px }
+table { border-collapse: collapse; width: 100%; font-size: .9rem }
+th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap }
+th { background: var(--paper); position: sticky; top: 0 }
+.pager { margin-top: 19px; padding-top: 14px; border-top: 1px solid var(--line) }
+@media(max-width: 560px) {
+  .wrap { inline-size: calc(100% - 24px) }
+  main { border-radius: 23px; padding: 20px 16px }
+  .top-inner { min-height: 58px }
+  progress { width: 37px }
+  .progress, .brand { gap: 5px }
+  nav { grid-template-columns: 1fr }
+  aside details, .source { padding: 8px 10px }
+}
+@media(max-width: 360px) { progress { display: none } }
